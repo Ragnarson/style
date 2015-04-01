@@ -120,22 +120,22 @@
   For hash literals, add spaces after `{` and before `}`.
 
   ```ruby
-  # good - space after { and before }
-  { one: 1, two: 2 }
-
   # bad
   {one: 1, two: 2}
+
+  # good - space after { and before }
+  { one: 1, two: 2 }
   ```
 
   The only exception for spaces after `{` and before `}` are embedded
   expressions.
 
   ```ruby
-  # good - no spaces
-  "string#{expr}"
-
   # bad
   "string#{ expr }"
+
+  # good - no spaces
+  "string#{expr}"
   ```
 
 * <a name="no-spaces-braces"></a>
@@ -1115,7 +1115,7 @@
   if the current value happened to be `false`.)
 <sup>[[link](#no-double-pipes-for-bools)]</sup>
 
-  ```Ruby
+  ```ruby
   # bad - would set enabled to true even if it was false
   enabled ||= true
 
