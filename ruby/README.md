@@ -42,17 +42,17 @@
 
   ```ruby
   # bad
-  puts 'foobar'; # superfluous semicolon
+  puts "foobar"; # superfluous semicolon
 
-  puts 'foo'; puts 'bar' # two expressions on the same line
+  puts "foo"; puts "bar" # two expressions on the same line
 
   # good
-  puts 'foobar'
+  puts "foobar"
 
-  puts 'foo'
-  puts 'bar'
+  puts "foo"
+  puts "bar"
 
-  puts 'foo', 'bar' # this applies to puts in particular
+  puts "foo", "bar" # this applies to puts in particular
   ```
 
 * <a name="single-line-classes"></a>
@@ -165,11 +165,11 @@
   ```ruby
   # bad
   1 .. 3
-  'a' ... 'z'
+  "a" ... "z"
 
   # good
   1..3
-  'a'...'z'
+  "a"..."z"
   ```
 
 * <a name="indent-when-to-case"></a>
@@ -181,10 +181,10 @@
   ```ruby
   # bad
   case
-    when song.name == 'Misty'
-      puts 'Not again!'
+    when song.name == "Misty"
+      puts "Not again!"
     when song.duration > 120
-      puts 'Too long!'
+      puts "Too long!"
     when Time.now.hour > 21
       puts "It's too late"
     else
@@ -193,10 +193,10 @@
 
   # good
   case
-  when song.name == 'Misty'
-    puts 'Not again!'
+  when song.name == "Misty"
+    puts "Not again!"
   when song.duration > 120
-    puts 'Too long!'
+    puts "Too long!"
   when Time.now.hour > 21
     puts "It's too late"
   else
@@ -212,12 +212,12 @@
   ```ruby
   # bad - pretty convoluted
   kind = case year
-  when 1850..1889 then 'Blues'
-  when 1890..1909 then 'Ragtime'
-  when 1910..1929 then 'New Orleans Jazz'
-  when 1930..1939 then 'Swing'
-  when 1940..1950 then 'Bebop'
-  else 'Jazz'
+  when 1850..1889 then "Blues"
+  when 1890..1909 then "Ragtime"
+  when 1910..1929 then "New Orleans Jazz"
+  when 1930..1939 then "Swing"
+  when 1940..1950 then "Bebop"
+  else "Jazz"
   end
 
   result = if some_cond
@@ -228,12 +228,12 @@
 
   # good - it's apparent what's going on
   kind = case year
-         when 1850..1889 then 'Blues'
-         when 1890..1909 then 'Ragtime'
-         when 1910..1929 then 'New Orleans Jazz'
-         when 1930..1939 then 'Swing'
-         when 1940..1950 then 'Bebop'
-         else 'Jazz'
+         when 1850..1889 then "Blues"
+         when 1890..1909 then "Ragtime"
+         when 1910..1929 then "New Orleans Jazz"
+         when 1930..1939 then "Swing"
+         when 1940..1950 then "Bebop"
+         else "Jazz"
          end
 
   result = if some_cond
@@ -245,12 +245,12 @@
   # good (and a bit more width efficient)
   kind =
     case year
-    when 1850..1889 then 'Blues'
-    when 1890..1909 then 'Ragtime'
-    when 1910..1929 then 'New Orleans Jazz'
-    when 1930..1939 then 'Swing'
-    when 1940..1950 then 'Bebop'
-    else 'Jazz'
+    when 1850..1889 then "Blues"
+    when 1890..1909 then "Ragtime"
+    when 1910..1929 then "New Orleans Jazz"
+    when 1930..1939 then "Swing"
+    when 1940..1950 then "Bebop"
+    else "Jazz"
     end
 
   result =
@@ -352,8 +352,8 @@
   result = 1 \
            - 2
 
-  long_string = 'First part of the long string' \
-                ' and second part of the long string'
+  long_string = "First part of the long string" \
+                " and second part of the long string"
   ```
 
 * <a name="multi-line-chains"></a>
@@ -387,32 +387,32 @@
   ```ruby
   # starting point (line is too long)
   def send_mail(source)
-    Mailer.deliver(to: 'bob@example.com', from: 'us@example.com', subject: 'Important message', body: source.text)
+    Mailer.deliver(to: "bob@example.com", from: "us@example.com", subject: "Important message", body: source.text)
   end
 
   # bad (double indent)
   def send_mail(source)
     Mailer.deliver(
-        to: 'bob@example.com',
-        from: 'us@example.com',
-        subject: 'Important message',
+        to: "bob@example.com",
+        from: "us@example.com",
+        subject: "Important message",
         body: source.text)
   end
 
   # good
   def send_mail(source)
-    Mailer.deliver(to: 'bob@example.com',
-                   from: 'us@example.com',
-                   subject: 'Important message',
+    Mailer.deliver(to: "bob@example.com",
+                   from: "us@example.com",
+                   subject: "Important message",
                    body: source.text)
   end
 
   # good (normal indent)
   def send_mail(source)
     Mailer.deliver(
-      to: 'bob@example.com',
-      from: 'us@example.com',
-      subject: 'Important message',
+      to: "bob@example.com",
+      from: "us@example.com",
+      subject: "Important message",
       body: source.text
     )
   end
@@ -424,19 +424,19 @@
 
   ```ruby
   # bad - single indent
-  menu_item = ['Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam',
-    'Baked beans', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam']
+  menu_item = ["Spam", "Spam", "Spam", "Spam", "Spam", "Spam", "Spam", "Spam",
+    "Baked beans", "Spam", "Spam", "Spam", "Spam", "Spam"]
 
   # good
   menu_item = [
-    'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam',
-    'Baked beans', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam'
+    "Spam", "Spam", "Spam", "Spam", "Spam", "Spam", "Spam", "Spam",
+    "Baked beans", "Spam", "Spam", "Spam", "Spam", "Spam"
   ]
 
   # good
   menu_item =
-    ['Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam',
-     'Baked beans', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam']
+    ["Spam", "Spam", "Spam", "Spam", "Spam", "Spam", "Spam", "Spam",
+     "Baked beans", "Spam", "Spam", "Spam", "Spam", "Spam"]
   ```
 
 * <a name="underscores-in-numerics"></a>
@@ -785,16 +785,16 @@
   ```ruby
   # bad
   unless success?
-    puts 'failure'
+    puts "failure"
   else
-    puts 'success'
+    puts "success"
   end
 
   # good
   if success?
-    puts 'success'
+    puts "success"
   else
-    puts 'failure'
+    puts "failure"
   end
   ```
 
@@ -918,7 +918,7 @@
     # omitted
   end
 
-  temperance = Person.new('Temperance', 30)
+  temperance = Person.new("Temperance", 30)
   temperance.name
 
   puts temperance.age
@@ -935,10 +935,10 @@
 
   ```ruby
   # bad
-  user.set({ name: 'John', age: 45, permissions: { read: true } })
+  user.set({ name: "John", age: 45, permissions: { read: true } })
 
   # good
-  user.set(name: 'John', age: 45, permissions: { read: true })
+  user.set(name: "John", age: 45, permissions: { read: true })
   ```
 
 * <a name="no-dsl-decorating"></a>
@@ -1101,13 +1101,13 @@
 
   ```ruby
   # bad
-  name = name ? name : 'Bozhidar'
+  name = name ? name : "Bozhidar"
 
   # bad
-  name = 'Bozhidar' unless name
+  name = "Bozhidar" unless name
 
   # good - set name to Bozhidar, only if it's nil or false
-  name ||= 'Bozhidar'
+  name ||= "Bozhidar"
   ```
 
 * <a name="no-double-pipes-for-bools"></a>
@@ -1191,7 +1191,7 @@
   $:.unshift File.dirname(__FILE__)
 
   # good
-  require 'English'
+  require "English"
   $LOAD_PATH.unshift File.dirname(__FILE__)
   ```
 
@@ -1309,11 +1309,11 @@
 
   ```ruby
   # bad
-  %w(one two three) * ', '
+  %w(one two three) * ", "
   # => 'one, two, three'
 
   # good
-  %w(one two three).join(', ')
+  %w(one two three).join(", ")
   # => 'one, two, three'
   ```
 
@@ -1482,7 +1482,7 @@
 
   ```ruby
   # bad
-  :'some symbol'
+  :"some symbol"
   :SomeSymbol
   :someSymbol
 
@@ -2007,27 +2007,27 @@
   # extend superclass
   class Duck < Animal
     def speak
-      puts 'Quack! Quack'
+      puts "Quack! Quack"
     end
   end
 
   # extend superclass
   class Dog < Animal
     def speak
-      puts 'Bau! Bau!'
+      puts "Bau! Bau!"
     end
   end
 
   # good
   class Duck
     def speak
-      puts 'Quack! Quack'
+      puts "Quack! Quack"
     end
   end
 
   class Dog
     def speak
-      puts 'Bau! Bau!'
+      puts "Bau! Bau!"
     end
   end
   ```
@@ -2039,7 +2039,7 @@
 
   ```ruby
   class Parent
-    @@class_var = 'parent'
+    @@class_var = "parent"
 
     def self.print_class_var
       puts @@class_var
@@ -2047,7 +2047,7 @@
   end
 
   class Child < Parent
-    @@class_var = 'child'
+    @@class_var = "child"
   end
 
   Parent.print_class_var # => will print "child"
@@ -2141,7 +2141,7 @@
   ```ruby
   class Fugitive < Westerner
     def first_name
-      'Nobody'
+      "Nobody"
     end
   end
   ```
@@ -2154,7 +2154,7 @@
   ```ruby
   class Fugitive < Westerner
     def first_name
-      'Nobody'
+      "Nobody"
     end
 
     alias given_name first_name
@@ -2189,9 +2189,9 @@
 
   ```ruby
   begin
-    fail 'Oops'
+    fail "Oops"
   rescue => error
-    raise if error.message != 'Oops'
+    raise if error.message != "Oops"
   end
   ```
 
@@ -2202,10 +2202,10 @@
 
   ```ruby
   # bad
-  fail RuntimeError, 'message'
+  fail RuntimeError, "message"
 
   # good - signals a RuntimeError by default
-  fail 'message'
+  fail "message"
   ```
 
 * <a name="exception-class-messages"></a>
@@ -2215,11 +2215,11 @@
 
   ```ruby
   # bad
-  fail SomeException.new('message')
+  fail SomeException.new("message")
   # Note that there is no way to do `fail SomeException.new('message'), backtrace`.
 
   # good
-  fail SomeException, 'message'
+  fail SomeException, "message"
   # Consistent with `fail SomeException, 'message', backtrace`.
   ```
 
@@ -2234,7 +2234,7 @@
   def foo
     fail
   ensure
-    return 'very bad idea'
+    return "very bad idea"
   end
   ```
 
@@ -2332,12 +2332,12 @@
   begin
     n / d
   rescue ZeroDivisionError
-    puts 'Cannot divide by 0!'
+    puts "Cannot divide by 0!"
   end
 
   # good
   if d.zero?
-    puts 'Cannot divide by 0!'
+    puts "Cannot divide by 0!"
   else
     n / d
   end
@@ -2405,7 +2405,7 @@
 <sup>[[link](#release-resources)]</sup>
 
   ```ruby
-  f = File.open('testfile')
+  f = File.open("testfile")
   begin
     # .. process
   rescue
@@ -2422,12 +2422,12 @@ resource cleanup when possible.
 
   ```ruby
   # bad - you need to close the file descriptor explicitly
-  f = File.open('testfile')
+  f = File.open("testfile")
     # ...
   f.close
 
   # good - the file descriptor is closed automatically
-  File.open('testfile') do |f|
+  File.open("testfile") do |f|
     # ...
   end
   ```
@@ -2461,7 +2461,7 @@ resource cleanup when possible.
 
   ```ruby
   # bad
-  STATES = ['draft', 'open', 'closed']
+  STATES = ["draft", "open", "closed"]
 
   # good
   STATES = %w(draft open closed)
@@ -2496,7 +2496,7 @@ resource cleanup when possible.
 
   ```ruby
   # bad
-  hash = { 'one' => 1, 'two' => 2, 'three' => 3 }
+  hash = { "one" => 1, "two" => 2, "three" => 3 }
 
   # good
   hash = { one: 1, two: 2, three: 3 }
@@ -2540,7 +2540,7 @@ resource cleanup when possible.
 <sup>[[link](#hash-fetch)]</sup>
 
   ```ruby
-  heroes = { batman: 'Bruce Wayne', superman: 'Clark Kent' }
+  heroes = { batman: "Bruce Wayne", superman: "Clark Kent" }
   # bad - if we make a mistake we might not spot it right away
   heroes[:batman] # => "Bruce Wayne"
   heroes[:supermann] # => nil
@@ -2555,7 +2555,7 @@ resource cleanup when possible.
 <sup>[[link](#hash-fetch-defaults)]</sup>
 
   ```ruby
-  batman = { name: 'Bruce Wayne', is_evil: false }
+  batman = { name: "Bruce Wayne", is_evil: false }
 
   # bad - if we just use || operator with falsy value we won't get the expected result
   batman[:is_evil] || true # => true
@@ -2569,7 +2569,7 @@ resource cleanup when possible.
 <sup>[[link](#use-hash-blocks)]</sup>
 
   ```ruby
-  batman = { name: 'Bruce Wayne' }
+  batman = { name: "Bruce Wayne" }
 
   # bad - if we use the default value, we eager evaluate it
   # so it can slow the program down if done multiple times
@@ -2586,11 +2586,11 @@ resource cleanup when possible.
 
   ```ruby
   # bad
-  email = data['email']
-  username = data['nickname']
+  email = data["email"]
+  username = data["nickname"]
 
   # good
-  email, username = data.values_at('email', 'nickname')
+  email, username = data.values_at("email", "nickname")
   ```
 
 * <a name="ordered-hashes"></a>
@@ -2646,13 +2646,13 @@ resource cleanup when possible.
 
   ```ruby
   # bad
-  email_with_name = user.name + ' <' + user.email + '>'
+  email_with_name = user.name + " <" + user.email + ">"
 
   # good
   email_with_name = "#{user.name} <#{user.email}>"
 
   # good
-  email_with_name = format('%s <%s>', user.name, user.email)
+  email_with_name = format("%s <%s>", user.name, user.email)
   ```
 
 * <a name="consistent-string-literals"></a>
@@ -2722,8 +2722,8 @@ resource cleanup when possible.
 
   ```ruby
   # good and also fast
-  html = ''
-  html << '<h1>Page title</h1>'
+  html = ""
+  html << "<h1>Page title</h1>"
 
   paragraphs.each do |paragraph|
     html << "<p>#{paragraph}</p>"
@@ -2735,8 +2735,8 @@ resource cleanup when possible.
 <sup>[[link](#dont-abuse-gsub)]</sup>
 
     ```ruby
-    url = 'http://example.com'
-    str = 'lisp-case-rules'
+    url = "http://example.com"
+    str = "lisp-case-rules"
 
     # bad
     url.gsub("http://", "https://")
@@ -2761,7 +2761,7 @@ resource cleanup when possible.
   ```ruby
   match = string[/regexp/]             # get content of matched regexp
   first_group = string[/text(grp)/, 1] # get content of captured group
-  string[/text (grp)/, 1] = 'replace'  # string => 'text replace'
+  string[/text (grp)/, 1] = "replace"  # string => 'text replace'
   ```
 
 * <a name="non-capturing-regexp"></a>
@@ -2881,7 +2881,7 @@ resource cleanup when possible.
   question = %q("What did you say?")
 
   # good
-  name = 'Bruce Wayne'
+  name = "Bruce Wayne"
   time = "8 o'clock"
   question = '"What did you say?"'
   ```
@@ -2954,7 +2954,7 @@ resource cleanup when possible.
 <sup>[[link](#block-class-eval)]</sup>
 
   ```ruby
-  class_eval 'def use_relative_model_naming?; true; end', __FILE__, __LINE__
+  class_eval "def use_relative_model_naming?; true; end", __FILE__, __LINE__
   ```
 
   - `define_method` is preferable to `class_eval{ def ... }`
@@ -2968,7 +2968,7 @@ resource cleanup when possible.
   ```ruby
   # from activesupport/lib/active_support/core_ext/string/output_safety.rb
   UNSAFE_STRING_METHODS.each do |unsafe_method|
-    if 'String'.respond_to?(unsafe_method)
+    if "String".respond_to?(unsafe_method)
       class_eval <<-EOT, __FILE__, __LINE__ + 1
         def #{unsafe_method}(*params, &block)       # def capitalize(*params, &block)
           to_str.#{unsafe_method}(*params, &block)  #   to_str.capitalize(*params, &block)
