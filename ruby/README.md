@@ -359,6 +359,7 @@
 * <a name="multi-line-chains"></a>
   When continuing a chained method invocation on another line, leave a trailing
   dot on the first line.
+<sup>[[link](#multi-line-chains)]</sup>
 
   ```ruby
   # bad
